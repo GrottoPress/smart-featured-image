@@ -3,7 +3,10 @@
 /**
  * Helper functions
  *
- * @since       Smart Featured Image 0.1.0
+ * @package         smart-featured-image
+ * @subpackage      smart-featured-image/includes
+ *
+ * @since           Smart Featured Image 0.1.0
  */
 
 namespace GrottoPress\SFI\Helpers;

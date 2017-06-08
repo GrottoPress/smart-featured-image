@@ -3,6 +3,9 @@
 /**
  * Plugin Setup
  *
+ * @package         smart-featured-image
+ * @subpackage      smart-featured-image/includes
+ *
  * @since       Smart Featured Image 0.1.0
  */
 
@@ -163,7 +166,7 @@ function add_settings() {
  *
  * - Use first attached image in post OR
  * - Use first image src in post content OR
- * - Use image whose ID is set in theme options
+ * - Use default featured image
  *
  * @action      the_post
  * @action      new_to_publish
@@ -277,7 +280,7 @@ function set_default_featured_image( $metadata, $post_id, $meta_key, $single ) {
  * Simply display it, without saving to database.
  * This would ensure that whenever we change the default (fallback)
  * image, all posts without featured image displays the new one, since
- * the old one was never saved for those posts.
+ * the old one was never saved as featured image for those posts.
  *
  * @filter          update_post_metadata
  * 
