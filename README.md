@@ -7,7 +7,7 @@
 
 ## Description
 
-**IMPORTANT:** *This plugin requires **PHP** version **5.3** or newer. We recomment **PHP** version **7.0** or newer.*
+**IMPORTANT:** *This plugin requires **PHP** version **5.3** or newer. We recommend **PHP** version **7.0** or newer.*
 
 *Smart Featured Image* is a WordPress plugin to automagically add featured image to posts using images inserted into post content, if no featured image is explicitly added to post.
 

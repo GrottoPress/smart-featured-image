@@ -15,7 +15,7 @@
  * Plugin URI:        #
  * Description:       Automagically add featured image to posts using images inserted into post content. Dynamically displays a configurable fallback image if no featured image found.
  * Version:           0.1.0
- * Author:            GrottoPress
+ * Author:            GrottoPress.com
  * Author URI:        https://www.grottopress.com
  * License:           GPL-2.0+
  * License URI:       http://www.gnu.org/licenses/gpl-2.0.txt

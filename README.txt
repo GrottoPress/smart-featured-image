@@ -4,7 +4,7 @@ Donate link:
 Tags: featured-image, post-thumbnail
 Requires at least: 4.0
 Tested up to: 4.8
-Stable tag: trunk
+Stable tag: 0.1.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -12,7 +12,7 @@ Automagically add featured image to posts using images inserted into post conten
 
 == Description ==
 
-**IMPORTANT:** *This plugin requires **PHP** version **5.3** or newer. We recomment **PHP** version **7.0** or newer.*
+**IMPORTANT:** *This plugin requires **PHP** version **5.3** or newer. We recommend **PHP** version **7.0** or newer.*
 
 *Smart Featured Image* is a WordPress plugin to automagically add featured image to posts using images inserted into post content, if no featured image is explicitly added to post.
 
@@ -35,13 +35,11 @@ Give *Smart Featured Image* a shot. You will love it.
 
 == Installation ==
 
-This section describes how to install the plugin and get it working.
+Follow the steps below to install the plugin:
 
-1. Unzip and upload `smart-featured-image` to the `/wp-content/plugins/` directory
+1. Unzip and upload `smart-featured-image` to the `wp-content/plugins` directory
 1. Activate the plugin through the 'Plugins' menu in WordPress
 1. Configure the *Default Featured Image* under '**Settings**' -> '**Media**'.
-
-[Click here to read more about installing, setting up and using *Smart Featured Image*](#).
 
 == Frequently Asked Questions ==
 
@@ -51,7 +49,7 @@ The plugin's source code is on [Gitlab](https://gitlab.com/GrottoPress/smart-fea
 
 == Screenshots ==
 
-1. The *Default Featured Image* section on the *Media Settings* screen.
+1. The Default Featured Image section on the Media Settings screen.
 
 == Changelog ==
 
