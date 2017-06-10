@@ -119,6 +119,7 @@ function add_settings() {
         foreach ( $post_types as $post_type ) {
             $setting_name = Helpers\option_name( $post_type->name );
             $setting_value = Helpers\get_option( $post_type->name );
+            $setting_value = wp_attachment_is_image( $setting_value ) ? $setting_value : 0;
 
             register_setting( 'media', $setting_name, 'absint' );
 
