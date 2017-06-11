@@ -11,7 +11,7 @@
 
 *Smart Featured Image* is a WordPress plugin to automagically add featured image to posts using images inserted into post content, if no featured image is explicitly added to post.
 
-The plugin dynamically displays a configurable fallback image if no featured image is found.
+The plugin displays a configurable fallback image if no featured image is found.
 
 The default (fallback) image settings are available via the *Media Settings* screen ('**Settings**' -> '**Media**') in the WordPress administration area. There are options to set the default featured image for each public post type.
 
@@ -22,7 +22,7 @@ The default (fallback) image settings are available via the *Media Settings* scr
 1. If no image was attached to the post, the plugin looks for an image inserted into the post content, but not necessary attached to the post. If found, the first local image inserted is saved as featured image.
 1. If all of the above fail, the plugin falls back to the default featured image set for the post type in question under the *Default Featured Image* section of the *Media Settings* screen.
 
-**Note** that the plugin **does not save** the default featured image as the featured image. Rather, it simply returns that image whenever a call to get the post thumbnail is made.
+You'll notice that, in step 4 above, the plugin **does not save** the default featured image as the featured image. Rather, it simply returns that image whenever a call to get the post thumbnail is made. This is the intended behaviour.
 
 This means, any time the default featured image changes, all posts that used the previous default featured image would automatically use the new default featured image since the old one was never saved to the database as featured image.
 

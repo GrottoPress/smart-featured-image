@@ -13,7 +13,7 @@
  * @wordpress-plugin
  * Plugin Name:       Smart Featured Image
  * Plugin URI:        #
- * Description:       Automagically add featured image to posts using images inserted into post content. Dynamically displays a configurable fallback image if no featured image found.
+ * Description:       Automagically add featured image to posts using images inserted into post content. Displays a configurable fallback image if no featured image found.
  * Version:           0.1.1
  * Author:            GrottoPress.com
  * Author URI:        https://www.grottopress.com

@@ -38,6 +38,8 @@ function run() {
 
     add_filter( 'get_post_metadata', '\GrottoPress\SFI\Setup\set_default_featured_image', 10, 4 );
     add_filter( 'update_post_metadata', '\GrottoPress\SFI\Setup\unsave_default_featured_image', 10, 5 );
+
+    add_filter( 'pre_update_option', '\GrottoPress\SFI\Setup\unset_default_featured_image', 10, 3 );
 }
 
 /**
@@ -127,7 +129,7 @@ function add_settings() {
                 function ( $args ) use ( $post_type, $setting_name, $setting_value ) {
                     echo '<input id="' . esc_attr( $setting_name ) . '" type="hidden" name="' . esc_attr( $setting_name ) . '" value="' . esc_attr( $setting_value ) . '" />
 
-                    <input class="regular-text" id="' . esc_attr( $setting_name ) . '-url" type="text" name="" value="' . esc_attr( wp_get_attachment_url( $setting_value ) ) . '" /> <input id="' . esc_attr( $setting_name ) . '-button" class="button upload-button" type="button" value="' . esc_html__( 'Select file', 'smart-featured-image' ) . '" />
+                    <input class="regular-text" id="' . esc_attr( $setting_name ) . '-url" type="text" name="' . esc_attr( $setting_name ) . '-url" value="' . esc_attr( wp_get_attachment_url( $setting_value ) ) . '" /> <input id="' . esc_attr( $setting_name ) . '-button" class="button upload-button" type="button" value="' . esc_html__( 'Select file', 'smart-featured-image' ) . '" />
                     
                     <script type="text/javascript">
                         jQuery(function( $ ) {
@@ -158,6 +160,44 @@ function add_settings() {
             'media', 'grotto_default_featured_image_section' );
         }
     }
+}
+
+/**
+ * Unset Default Image Settings
+ *
+ * Do not save default featured image if URL field is empty. This allows
+ * users to unset the default featured image by clearing the URL field.
+ *
+ * @filter      pre_update_option
+ *
+ * @since       Smart Featured Images 0.1.0
+ */
+function unset_default_featured_image( $value, $option, $old_value ) {
+    if (
+        ! is_admin()
+        || ! isset( $_POST['option_page'] )
+        || 'media' != $_POST['option_page']
+    ) {
+        return $value;
+    }
+
+    if ( ! ( $post_types = Helpers\get_post_types() ) ) {
+        return $value;
+    }
+
+    foreach ( $post_types as $post_type ) {
+        if ( $option != ( $option_name = Helpers\option_name( $post_type->name ) ) ) {
+            continue;
+        }
+        
+        if ( ! empty( $_POST[ $option_name . '-url' ] ) ) {
+            continue;
+        }
+        
+        return 0;
+    }
+
+    return $value;
 }
 
 /**
