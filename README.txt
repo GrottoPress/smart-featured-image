@@ -4,7 +4,7 @@ Donate link:
 Tags: featured-image, post-thumbnail
 Requires at least: 4.0
 Tested up to: 4.8
-Stable tag: 0.1.1
+Stable tag: 0.1.3
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -63,8 +63,12 @@ The plugin's source code is on [Gitlab](https://gitlab.com/GrottoPress/smart-fea
 
 == Changelog ==
 
-= 0.1.2 =
+= 0.1.3 =
 - Release date: 2017-06-12
+- Fix: Pasting URL in default featured image fields not saving
+
+= 0.1.2 =
+- Release date: 2017-06-11
 - Fix: Default featured image settings could not be unset.
 
 = 0.1.1 =

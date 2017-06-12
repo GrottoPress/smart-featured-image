@@ -127,7 +127,7 @@ function add_settings() {
 
             add_settings_field( $setting_name, $post_type->labels->singular_name,
                 function ( $args ) use ( $post_type, $setting_name, $setting_value ) {
-                    echo '<input id="' . esc_attr( $setting_name ) . '" type="hidden" name="' . esc_attr( $setting_name ) . '" value="' . esc_attr( $setting_value ) . '" />
+                    echo '<!--<input id="' . esc_attr( $setting_name ) . '" type="hidden" name="' . esc_attr( $setting_name ) . '" value="' . esc_attr( $setting_value ) . '" />-->
 
                     <input class="regular-text" id="' . esc_attr( $setting_name ) . '-url" type="text" name="' . esc_attr( $setting_name ) . '-url" value="' . esc_attr( wp_get_attachment_url( $setting_value ) ) . '" /> <input id="' . esc_attr( $setting_name ) . '-button" class="button upload-button" type="button" value="' . esc_html__( 'Select file', 'smart-featured-image' ) . '" />
                     
@@ -150,7 +150,7 @@ function add_settings() {
                                 smart_featured_image_uploader.on("select", function() {
                                     attachment = smart_featured_image_uploader.state().get( "selection" ).first().toJSON();
                                     $( "#' . esc_attr( $setting_name ) . '-url" ).val( attachment.url );
-                                    $( "#' . esc_attr( $setting_name ) . '" ).val( attachment.id );
+                                    // $( "#' . esc_attr( $setting_name ) . '" ).val( attachment.id );
                                 });
                                 smart_featured_image_uploader.open();
                             });
@@ -163,10 +163,7 @@ function add_settings() {
 }
 
 /**
- * Unset Default Image Settings
- *
- * Do not save default featured image if URL field is empty. This allows
- * users to unset the default featured image by clearing the URL field.
+ * Save attachment ID, instead of URL, for each default featured image
  *
  * @filter      pre_update_option
  *
@@ -190,11 +187,11 @@ function unset_default_featured_image( $value, $option, $old_value ) {
             continue;
         }
         
-        if ( ! empty( $_POST[ $option_name . '-url' ] ) ) {
-            continue;
+        if ( empty( $_POST[ $option_name . '-url' ] ) ) {
+            return 0;
         }
-        
-        return 0;
+
+        return attachment_url_to_postid( $_POST[ $option_name . '-url' ] );
     }
 
     return $value;
