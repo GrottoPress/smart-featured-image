@@ -14,11 +14,15 @@ Automagically add featured image to posts using images inserted into post conten
 
 **IMPORTANT:** *This plugin requires **PHP** version **5.3** or newer. We recommend **PHP** version **7.0** or newer.*
 
-*Smart Featured Image* is a WordPress plugin to automagically add featured image to posts using images inserted into post content, if no featured image is explicitly added to post.
+*Smart Featured Image* is a WordPress plugin to automagically add featured images to posts using images inserted into post content, if no featured image is added to a post.
 
-The plugin dynamically displays a configurable fallback image if no featured image is found.
+WordPress, by default, requires you to explicitly set a featured image for each post even if there are images already used in the post.
 
-The default (fallback) image settings are available via the *Media Settings* screen ('**Settings**' -> '**Media**') in the WordPress administration area. There are options to set the default featured image for each public post type.
+The Smart Featured Image plugin frees you from the extra step of setting a featured image by saving the first local image it finds in the post content as featured image.
+
+The plugin displays a configurable default image if no image is found in post content.
+
+The default image settings are available via the *Media Settings* screen ('**Settings**' -> '**Media**') in the WordPress administration area. There are options to set the default featured image for each public post type.
 
 *Smart Featured Image* works by:
 
@@ -27,7 +31,7 @@ The default (fallback) image settings are available via the *Media Settings* scr
 1. If no image was attached to the post, the plugin looks for an image inserted into the post content, but not necessary attached to the post. If found, the first local image inserted is saved as featured image.
 1. If all of the above fail, the plugin falls back to the default featured image set for the post type in question under the *Default Featured Image* section of the *Media Settings* screen.
 
-**Note** that the plugin **does not save** the default featured image as the featured image. Rather, it simply returns that image whenever a call to get the post thumbnail is made.
+You would notice that, in step 4 above, the plugin **does not save** the default featured image as the featured image. Rather, it simply returns that image whenever a call to get the post thumbnail is made. This is the intended behaviour.
 
 This means, any time the default featured image changes, all posts that used the previous default featured image would automatically use the new default featured image since the old one was never saved to the database as featured image.
 
@@ -41,9 +45,15 @@ Follow the steps below to install the plugin:
 1. Activate the plugin through the 'Plugins' menu in WordPress
 1. Configure the *Default Featured Image* under '**Settings**' -> '**Media**'.
 
+Find out more from [here](https://www.grottopress.com/tutorials/smart-featured-image-wordpress-plugin/).
+
 == Frequently Asked Questions ==
 
-= How do I contribute to development =
+= Where are the plugin's settings? =
+
+The plugin simply works upon activation. You may set the default featured image for each public post type under '**Settings**' -> '**Media**' sub-menu of the WordPress admin area.
+
+= How do I contribute to development? =
 
 The plugin's source code is on [Gitlab](https://gitlab.com/GrottoPress/smart-featured-image)
 
@@ -53,5 +63,14 @@ The plugin's source code is on [Gitlab](https://gitlab.com/GrottoPress/smart-fea
 
 == Changelog ==
 
+= 0.1.2 =
+- Release date: 2017-06-12
+- Fix: Default featured image settings could not be unset.
+
+= 0.1.1 =
+- Release date: 2017-06-08
+- Fixed typo in README.txt
+
 = 0.1.0 =
+- Release date: 2017-06-08
 - Initial public release
