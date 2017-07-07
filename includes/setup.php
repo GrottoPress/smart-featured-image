@@ -248,6 +248,10 @@ function set_featured_image( $post ) {
         return;
     }
 
+    if ( Helpers\no_sfi( $post_id ) ) {
+        return;
+    }
+
     $catch_image = Helpers\catch_first_image( $my_post->post_content, false );
     $catch_image_id = attachment_url_to_postid( $catch_image );
 
@@ -308,6 +312,10 @@ function set_default_featured_image( $metadata, $post_id, $meta_key, $single ) {
     }
 
     if ( 'publish' != $my_post->post_status ) {
+        return $metadata;
+    }
+
+    if ( Helpers\no_sfi( $post_id ) ) {
         return $metadata;
     }
 

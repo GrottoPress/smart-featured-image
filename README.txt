@@ -1,10 +1,10 @@
 === Smart Featured Image ===
 Contributors: grottopress, attakusiadusei
 Donate link: 
-Tags: featured-image, post-thumbnail
+Tags: automatic-featured-image, smart-featured-image, featured-image, post-thumbnail
 Requires at least: 4.0
 Tested up to: 4.8
-Stable tag: 0.1.3
+Stable tag: trunk
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -35,6 +35,8 @@ You would notice that, in step 4 above, the plugin **does not save** the default
 
 This means, any time the default featured image changes, all posts that used the previous default featured image would automatically use the new default featured image since the old one was never saved to the database as featured image.
 
+You can disable smart featured image for any specific post by setting a `no_sfi` custom field to any value other than `0`. Delete the custom field, or set to `0`, to restore plugin functionality for that post.
+
 Give *Smart Featured Image* a shot. You will love it.
 
 == Installation ==
@@ -53,6 +55,10 @@ Find out more from [here](https://www.grottopress.com/tutorials/smart-featured-i
 
 The plugin simply works upon activation. You may set the default featured image for each public post type under '**Settings**' -> '**Media**' sub-menu of the WordPress admin area.
 
+= Can I disable Smart Featured Image for specific posts =
+
+Of course! For any post you want to disable smart featured image, just set a `no_sfi` custom field to any value other than `0`. To restore smart featured image functionality, simply delete the `no_sfi` custom field, or set to `0`, for that post.
+
 = How do I contribute to development? =
 
 The plugin's source code is on [Gitlab](https://gitlab.com/GrottoPress/smart-featured-image)
@@ -63,9 +69,16 @@ The plugin's source code is on [Gitlab](https://gitlab.com/GrottoPress/smart-fea
 
 == Changelog ==
 
+= 0.2.0 =
+- Release date: 2017-07-07
+- Added ability to disable smart featured image functionality for any specific post.
+
+= 0.1.4 =
+- Fixed permission issue when bulk activating or deactivating plugins
+
 = 0.1.3 =
 - Release date: 2017-06-12
-- Fix: Pasting URL in default featured image fields not saving
+- Fix: Pasting URL in default featured image fields not saving.
 
 = 0.1.2 =
 - Release date: 2017-06-11
