@@ -54,8 +54,11 @@ function activation_checks() {
         wp_die( esc_html__( 'You are not allowed to perform this action!', 'smart-featured-image' ) );
     }
 
-    $plugin = isset( $_GET['plugin'] ) ? $_GET['plugin'] : '';
-    check_admin_referer( "activate-plugin_{$plugin}" );
+    if ( isset( $_GET['plugin'] ) ) {
+        check_admin_referer( "activate-plugin_{$_GET['plugin']}" );
+    } else {
+        check_admin_referer( 'bulk-plugins' );
+    }
 
     // $PHP_version = phpversion();
     // $required_PHP = '5.3';
@@ -92,8 +95,11 @@ function deactivation_checks() {
         wp_die( esc_html__( 'You are not allowed to perform this action!', 'smart-featured-image' ) );
     }
 
-    $plugin = isset( $_GET['plugin'] ) ? $_GET['plugin'] : '';
-    check_admin_referer( "deactivate-plugin_{$plugin}" );
+    if ( isset( $_GET['plugin'] ) ) {
+        check_admin_referer( "deactivate-plugin_{$_GET['plugin']}" );
+    } else {
+        check_admin_referer( 'bulk-plugins' );
+    }
 }
 
 /**
