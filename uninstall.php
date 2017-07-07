@@ -47,13 +47,6 @@ if (
 }
 
 /**
- * Check admin referer
- * 
- * @since 		Smart Featured Images 0.1.0
- */
-// check_admin_referer( 'bulk-plugins' );
-
-/**
  * Remove options
  *
  * @since 		Smart Featured Images 0.1.0
