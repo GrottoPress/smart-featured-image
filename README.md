@@ -30,6 +30,8 @@ You would notice that, in step 4 above, the plugin **does not save** the default
 
 This means, any time the default featured image changes, all posts that used the previous default featured image would automatically use the new default featured image since the old one was never saved to the database as featured image.
 
+You can disable smart featured image for any specific post by setting a `no_sfi` custom field to any value other than `0`. Delete the custom field, or set to `0`, to restore plugin functionality for that post.
+
 Download the plugin from the official WordPress plugin directory, or search for, install and activate the plugin from the *Add Plugins* screen ('**Plugins**' -> '**Add New**') of the WordPress admin area.
 
 Find out more about the plugin from [here](https://www.grottopress.com/tutorials/smart-featured-image-wordpress-plugin/).

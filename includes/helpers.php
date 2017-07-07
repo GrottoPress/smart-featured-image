@@ -169,3 +169,19 @@ function delete_option( $post_type ) {
 function option_name( $post_type ) {
     return sanitize_key( $post_type . '_default_featured_image' );
 }
+
+/**
+ * Is smart featured image disabled for post
+ *
+ * Allows users to disable smart featured image
+ * for specific posts
+ *
+ * @var         integer     $post_id        Post ID
+ *
+ * @since       Smart Featured Image 0.1.0
+ *
+ * @return      boolean         Whether or not 'no_sfi' custom field is set.
+ */
+function no_sfi( $post_id ) {
+    return get_post_meta( absint( $post_id ), 'no_sfi', true );
+}
