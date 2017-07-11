@@ -131,10 +131,8 @@ function get_attached_images( $post_id ) {
  * @since       Smart Featured Image 0.1.0
  */
 function post_content_has_image( $post ) {
-    $catch_image = catch_first_image( $post->post_content, false );
-    $catch_image_id = attachment_url_to_postid( $catch_image );
-
-    return ( get_attached_images( $post->ID ) || $catch_image_id );
+    return ( get_attached_images( $post->ID )
+        || attachment_url_to_postid( catch_first_image( $post->post_content, false ) ) );
 }
 
 /**
