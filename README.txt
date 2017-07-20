@@ -69,6 +69,10 @@ The plugin's source code is on [Gitlab](https://gitlab.com/GrottoPress/smart-fea
 
 == Changelog ==
 
+= 0.2.1 =
+- Release date: 2017-07-20
+- Improved performance by reducing database queries.
+
 = 0.2.0 =
 - Release date: 2017-07-07
 - Added ability to disable smart featured image functionality for any specific post.

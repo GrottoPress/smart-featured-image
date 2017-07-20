@@ -56,6 +56,25 @@ function catch_first_image( $content = '', $allow_external = true ) {
 }
 
 /**
+ * First image ID
+ *
+ * Get ID of first image found in post content
+ *
+ * @since       Smart Featured Images 0.1.0
+ *
+ * @var         string          $content            Content to retrieve first image from
+ *
+ * @return      integer         ID of first image in content
+ */
+function first_image_ID( $content = '' ) {
+    if ( ! $content ) {
+        return 0;
+    }
+
+    return attachment_url_to_postid( catch_first_image( $content, false ) );
+}
+
+/**
  * Add admin notice
  *
  * @since       Smart Featured Images 0.1.0
@@ -132,7 +151,7 @@ function get_attached_images( $post_id ) {
  */
 function post_content_has_image( $post ) {
     return ( get_attached_images( $post->ID )
-        || attachment_url_to_postid( catch_first_image( $post->post_content, false ) ) );
+        || catch_first_image( $post->post_content, false ) );
 }
 
 /**
