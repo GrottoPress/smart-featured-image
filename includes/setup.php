@@ -252,15 +252,12 @@ function set_featured_image( $post ) {
         return;
     }
 
-    $catch_image = Helpers\catch_first_image( $my_post->post_content, false );
-    $catch_image_id = attachment_url_to_postid( $catch_image );
-
     if ( ( $attached_images = Helpers\get_attached_images( $post_id ) ) ) {
         foreach( $attached_images as $attachment_id => $attachment ) {
             set_post_thumbnail( $post_id, $attachment_id );
             break;
         }
-    } elseif ( $catch_image_id ) {
+    } elseif ( Helpers\first_image_ID( $my_post->post_content ) ) {
         set_post_thumbnail( $post_id, $catch_image_id );
     }
 }
