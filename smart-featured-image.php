@@ -43,18 +43,11 @@ if ( ! defined( 'WPINC' ) ) {
 }
 
 /**
- * Include helpers
+ * Autoload
  * 
- * @since       Smart Featured Image 0.1.0
+ * @since       MagPack 0.1.0
  */
-require_once plugin_dir_path( __FILE__ ) . 'includes/helpers.php';
-
-/**
- * Include setup
- * 
- * @since       Smart Featured Image 0.1.0
- */
-require_once plugin_dir_path( __FILE__ ) . 'includes/setup.php';
+require_once plugin_dir_path( __FILE__ ) . 'vendor/autoload.php';
 
 /**
  * Activation hook
