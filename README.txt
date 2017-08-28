@@ -69,6 +69,10 @@ The plugin's source code is on [Gitlab](https://gitlab.com/GrottoPress/smart-fea
 
 == Changelog ==
 
+= 0.2.3 =
+- Release date: 2017-08-28
+- Fixed error: $catch_image_id undefined in plugin setup.
+
 = 0.2.1 =
 - Release date: 2017-07-20
 - Improved performance by reducing database queries.
