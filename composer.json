@@ -28,8 +28,5 @@
     },
     "autoload": {
         "files": [ "includes/helpers.php", "includes/setup.php" ]
-    },
-    "autoload-dev": {
-        "classmap": [ "tests/" ]
     }
 }
