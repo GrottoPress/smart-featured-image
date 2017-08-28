@@ -257,8 +257,8 @@ function set_featured_image( $post ) {
             set_post_thumbnail( $post_id, $attachment_id );
             break;
         }
-    } elseif ( Helpers\first_image_ID( $my_post->post_content ) ) {
-        set_post_thumbnail( $post_id, $catch_image_id );
+    } elseif ( $image_id = Helpers\get_first_image_ID( $my_post->post_content ) ) {
+        set_post_thumbnail( $post_id, $image_id );
     }
 }
 

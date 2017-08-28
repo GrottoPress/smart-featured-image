@@ -66,7 +66,7 @@ function catch_first_image( $content = '', $allow_external = true ) {
  *
  * @return      integer         ID of first image in content
  */
-function first_image_ID( $content = '' ) {
+function get_first_image_ID( $content = '' ) {
     if ( ! $content ) {
         return 0;
     }
