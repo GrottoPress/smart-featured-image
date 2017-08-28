@@ -25,21 +25,21 @@ use GrottoPress\SFI\Helpers;
  * @since       Smart Featured Images 0.1.0
  */
 function run() {
-    add_action( 'admin_init', '\GrottoPress\SFI\Setup\add_settings' );
+    add_action( 'admin_init', __NAMESPACE__ . '\add_settings' );
 
-    add_action( 'save_post', '\GrottoPress\SFI\Setup\set_featured_image' );
-    add_action( 'edit_attachment', '\GrottoPress\SFI\Setup\set_featured_image' );
+    add_action( 'save_post', __NAMESPACE__ . '\set_featured_image' );
+    add_action( 'edit_attachment', __NAMESPACE__ . '\set_featured_image' );
 
-    add_action( 'the_post', '\GrottoPress\SFI\Setup\set_featured_image' );
-    add_action( 'draft_to_publish', '\GrottoPress\SFI\Setup\set_featured_image' );
-    add_action( 'new_to_publish', '\GrottoPress\SFI\Setup\set_featured_image' );
-    add_action( 'pending_to_publish', '\GrottoPress\SFI\Setup\set_featured_image' );
-    add_action( 'future_to_publish', '\GrottoPress\SFI\Setup\set_featured_image' );
+    add_action( 'the_post', __NAMESPACE__ . '\set_featured_image' );
+    add_action( 'draft_to_publish', __NAMESPACE__ . '\set_featured_image' );
+    add_action( 'new_to_publish', __NAMESPACE__ . '\set_featured_image' );
+    add_action( 'pending_to_publish', __NAMESPACE__ . '\set_featured_image' );
+    add_action( 'future_to_publish', __NAMESPACE__ . '\set_featured_image' );
 
-    add_filter( 'get_post_metadata', '\GrottoPress\SFI\Setup\set_default_featured_image', 10, 4 );
-    add_filter( 'update_post_metadata', '\GrottoPress\SFI\Setup\unsave_default_featured_image', 10, 5 );
+    add_filter( 'get_post_metadata', __NAMESPACE__ . '\set_default_featured_image', 10, 4 );
+    add_filter( 'update_post_metadata', __NAMESPACE__ . '\unsave_default_featured_image', 10, 5 );
 
-    add_filter( 'pre_update_option', '\GrottoPress\SFI\Setup\unset_default_featured_image', 10, 3 );
+    add_filter( 'pre_update_option', __NAMESPACE__ . '\unset_default_featured_image', 10, 3 );
 }
 
 /**
