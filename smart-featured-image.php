@@ -14,7 +14,7 @@
  * Plugin Name:       Smart Featured Image
  * Plugin URI:        https://www.grottopress.com/tutorials/smart-featured-image-wordpress-plugin/
  * Description:       Automagically add featured image to posts using images inserted into post content. Displays a configurable default image if no image found.
- * Version:           0.2.2
+ * Version:           0.2.3
  * Author:            GrottoPress.com
  * Author URI:        https://www.grottopress.com
  * License:           GPL-2.0+
@@ -43,18 +43,11 @@ if ( ! defined( 'WPINC' ) ) {
 }
 
 /**
- * Include helpers
+ * Autoload
  * 
- * @since       Smart Featured Image 0.1.0
+ * @since       MagPack 0.1.0
  */
-require_once plugin_dir_path( __FILE__ ) . 'includes/helpers.php';
-
-/**
- * Include setup
- * 
- * @since       Smart Featured Image 0.1.0
- */
-require_once plugin_dir_path( __FILE__ ) . 'includes/setup.php';
+require_once plugin_dir_path( __FILE__ ) . 'vendor/autoload.php';
 
 /**
  * Activation hook
