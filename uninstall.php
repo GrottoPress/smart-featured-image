@@ -19,11 +19,11 @@ if ( ! defined( 'WPINC' ) ) {
 use GrottoPress\SFI\Helpers;
 
 /**
- * Include helpers
+ * Autoload
  * 
- * @since       Smart Featured Image 0.1.0
+ * @since       Smart Featured Image 0.2.4
  */
-require_once plugin_dir_path( __FILE__ ) . 'includes/helpers.php';
+require_once plugin_dir_path( __FILE__ ) . 'vendor/autoload.php';
 
 /**
  * Check capability
