@@ -4,6 +4,7 @@ Donate link:
 Tags: automatic-featured-image, smart-featured-image, featured-image, post-thumbnail
 Requires at least: 4.0
 Tested up to: 4.8
+Requires PHP: 5.3
 Stable tag: trunk
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -68,6 +69,11 @@ The plugin's source code is on [Gitlab](https://gitlab.com/GrottoPress/smart-fea
 1. The Default Featured Image section on the Media Settings screen.
 
 == Changelog ==
+
+= 0.2.4 =
+- Release date: 2017-08-29
+- Added required PHP version to readme.txt header
+- Fixed error: autoloader not found
 
 = 0.2.3 =
 - Release date: 2017-08-28
