@@ -1,0 +1,53 @@
+# Copyright (C) 2020 GrottoPress.com
+# This file is distributed under the same license as the Smart Featured Image plugin.
+msgid ""
+msgstr ""
+"Project-Id-Version: Smart Featured Image 0.2.4\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/smart-featured-image\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2020-03-11T13:07:04+00:00\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"X-Generator: WP-CLI 2.1.0\n"
+"X-Domain: smart-featured-image\n"
+
+#. Plugin Name of the plugin
+msgid "Smart Featured Image"
+msgstr ""
+
+#. Plugin URI of the plugin
+msgid "https://www.grottopress.com/tutorials/smart-featured-image-wordpress-plugin/"
+msgstr ""
+
+#. Description of the plugin
+msgid "Automagically add featured image to posts using images inserted into post content. Displays a configurable default image if none found."
+msgstr ""
+
+#. Author of the plugin
+msgid "GrottoPress.com"
+msgstr ""
+
+#. Author URI of the plugin
+msgid "https://www.grottopress.com"
+msgstr ""
+
+#: smart-featured-image.php:46
+msgid "%1$s plugin has been deactivated as it requires PHP >= %2$s and WordPress >= %3$s"
+msgstr ""
+
+#: uninstall.php:34
+#: app/libraries/SmartFeaturedImage/Setups/Activator.php:29
+#: app/libraries/SmartFeaturedImage/Setups/Deactivator.php:32
+msgid "You are not allowed to perform this action!"
+msgstr ""
+
+#: app/libraries/SmartFeaturedImage/Setups/Optionizer/DefaultFeaturedImage.php:19
+msgid "Select the default featured image for each post type."
+msgstr ""
+
+#: app/libraries/SmartFeaturedImage/Setups/Optionizer/DefaultFeaturedImage.php:25
+msgid "Default Featured Image"
+msgstr ""

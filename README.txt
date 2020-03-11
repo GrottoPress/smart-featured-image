@@ -1,21 +1,19 @@
 === Smart Featured Image ===
 Contributors: grottopress, attakusiadusei
-Donate link: 
+Donate link:
 Tags: automatic-featured-image, smart-featured-image, featured-image, post-thumbnail
-Requires at least: 4.0
-Tested up to: 4.8
-Requires PHP: 5.3
+Requires at least: 4.7
+Tested up to: 5.4
+Requires PHP: 7.0
 Stable tag: trunk
-License: GPLv2 or later
-License URI: http://www.gnu.org/licenses/gpl-2.0.html
+License: MIT
+License URI: https://opensource.org/licenses/MIT
 
 Automagically add featured image to posts using images inserted into post content, if no featured image is explicitly added to post.
 
 == Description ==
 
-**IMPORTANT:** *This plugin requires **PHP** version **5.3** or newer. We recommend **PHP** version **7.0** or newer.*
-
-*Smart Featured Image* is a WordPress plugin to automagically add featured images to posts using images inserted into post content, if no featured image is added to a post.
+*Smart Featured Image* is a WordPress plugin that automagically adds featured images to posts using images inserted into post content, if no featured image is added to a post.
 
 WordPress, by default, requires you to explicitly set a featured image for each post even if there are images already used in the post.
 
@@ -62,13 +60,19 @@ Of course! For any post you want to disable smart featured image, just set a `no
 
 = How do I contribute to development? =
 
-The plugin's source code is on [Gitlab](https://gitlab.com/GrottoPress/smart-featured-image)
+The plugin's source code is on [Github](https://github.com/GrottoPress/smart-featured-image)
 
 == Screenshots ==
 
 1. The Default Featured Image section on the Media Settings screen.
 
 == Changelog ==
+
+= 0.3.0 =
+- Release date: 2020-03-11
+- Rewrite plugin using the [WordPress SUV](https://github.com/GrottoPress/wordpress-suv) architecture
+- Change license to MIT
+- Update minimum required PHP version to 7.0
 
 = 0.2.4 =
 - Release date: 2017-08-29

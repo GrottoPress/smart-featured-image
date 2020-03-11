@@ -1,0 +1,11 @@
+/**
+!/app/
+!/dist/
+!/docker/
+!/lang/
+!/composer.json
+!/composer.lock
+!/LICENSE.txt
+!/README.txt
+!/smart-featured-image.php
+!/uninstall.php

@@ -1,0 +1,16 @@
+/** export-ignore
+/app -export-ignore
+/app/** -export-ignore
+/assets -export-ignore
+/assets/** -export-ignore
+/dist -export-ignore
+/dist/** -export-ignore
+/lang -export-ignore
+/lang/** -export-ignore
+/.security.txt -export-ignore
+/composer.json -export-ignore
+/composer.lock -export-ignore
+/LICENSE.txt -export-ignore
+/README.txt -export-ignore
+/smart-featured-image.php -export-ignore
+/uninstall.php -export-ignore

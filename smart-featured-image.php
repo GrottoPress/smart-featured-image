@@ -1,71 +1,62 @@
 <?php
 
 /**
- * The plugin bootstrap file
- *
- * This file is read by WordPress to generate the plugin information in the plugin
- * Dashboard. This file also includes all of the dependencies used by the plugin.
- *
- * @link              #
- * @since             Smart Featured Image 0.1.0
- * @package           smart-featured-image
- *
  * @wordpress-plugin
- * Plugin Name:       Smart Featured Image
- * Plugin URI:        https://www.grottopress.com/tutorials/smart-featured-image-wordpress-plugin/
- * Description:       Automagically add featured image to posts using images inserted into post content. Displays a configurable default image if no image found.
- * Version:           0.2.4
- * Author:            GrottoPress.com
- * Author URI:        https://www.grottopress.com
- * License:           GPL-2.0+
- * License URI:       http://www.gnu.org/licenses/gpl-2.0.txt
- * Text Domain:       smart-featured-image
- * Domain Path:       /languages
- * 
- * This plugin is free software: you can redistribute it and/or modify
- * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation, either version 2 of the License, or
- * any later version.
- * 
- * This plugin is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
- * GNU General Public License for more details.
- *  
- * You should have received a copy of the GNU General Public License
- * along with this plugin. If not, see http://www.gnu.org/licenses/gpl-2.0.txt.
+ * Plugin Name: Smart Featured Image
+ * Plugin URI: https://www.grottopress.com/tutorials/smart-featured-image-wordpress-plugin/
+ * Description: Automagically add featured image to posts using images inserted into post content. Displays a configurable default image if none found.
+ * Version: 0.2.4
+ * Author: GrottoPress.com
+ * Author URI: https://www.grottopress.com
+ * License: MIT
+ * License URI: https://opensource.org/licenses/MIT
+ * Text Domain: smart-featured-image
+ * Domain Path: /lang
  */
 
-namespace GrottoPress\SFI;
+/**
+ * IMPORTANT: Keep code in this file compatible with PHP 5.2
+ */
 
-if ( ! defined( 'WPINC' ) ) {
-    die;
+!defined('WPINC') && exit;
+
+require __DIR__.'/constants.php';
+
+if (version_compare(PHP_VERSION, SFI_MIN_PHP, '<') ||
+    version_compare(get_bloginfo('version'), SFI_MIN_WP, '<')
+) {
+    add_action('admin_notices', 'printSmartFeaturedImageNotice');
+
+    deactivateSmartFeaturedImage();
+} else {
+    require __DIR__.'/vendor/autoload.php';
+
+    add_action('plugins_loaded', 'runSmartFeaturedImage', 0);
 }
 
-/**
- * Autoload
- * 
- * @since       Smart Featured Image 0.1.0
- */
-require_once plugin_dir_path( __FILE__ ) . 'vendor/autoload.php';
+function runSmartFeaturedImage()
+{
+    SmartFeaturedImage()->run();
+}
 
-/**
- * Activation hook
- * 
- * @since       Smart Featured Image 0.1.0
- */
-register_activation_hook( __FILE__, '\GrottoPress\SFI\Setup\activation_checks' );
+function printSmartFeaturedImageNotice()
+{
+    echo '<div class="notice notice-error">
+        <p>'.
+        sprintf(
+            esc_html__(
+                '%1$s plugin has been deactivated as it requires PHP >= %2$s and WordPress >= %3$s',
+                'smart-featured-image'
+            ),
+            '<code>smart-featured-image</code>',
+            '<strong>'.SFI_MIN_PHP.'</strong>',
+            '<strong>'.SFI_MIN_WP.'</strong>'
+        ).
+        '</p>
+    </div>';
+}
 
-/**
- * Deactivation hook
- *
- * @since       Smart Featured Image 0.1.0
- */
-register_deactivation_hook( __FILE__, '\GrottoPress\SFI\Setup\deactivation_checks' );
-
-/**
- * Run plugin
- * 
- * @since       Smart Featured Images 0.1.0
- */
-add_action( 'plugins_loaded', '\GrottoPress\SFI\Setup\run', 0 );
+function deactivateSmartFeaturedImage()
+{
+    deactivate_plugins(SFI_PLUGIN_BASENAME);
+}

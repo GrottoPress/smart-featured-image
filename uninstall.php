@@ -1,89 +1,49 @@
 <?php
 
 /**
- * Uninstall
- *
- * Checks and actions to perform during plugin
- * uninstallation.
- *
- * @link            http://example.com
- * @since           Smart Featured Images 0.1.0
- *
- * @package         smart-featured-image
+ * IMPORTANT: Keep code in this file compatible with PHP 5.2
  */
 
-if ( ! defined( 'WPINC' ) ) {
-    die;
-}
+!defined('WPINC') && exit;
+!defined('WP_UNINSTALL_PLUGIN') && exit;
 
-use GrottoPress\SFI\Helpers;
+require __DIR__.'/constants.php';
 
-/**
- * Autoload
- * 
- * @since       Smart Featured Image 0.2.4
- */
-require_once plugin_dir_path( __FILE__ ) . 'vendor/autoload.php';
-
-/**
- * Check capability
- * 
- * @since 		Smart Featured Images 0.1.0
- */
-if ( ! current_user_can( 'activate_plugins' ) ) {
-	wp_die( esc_html__( 'You are not allowed to perform this action!', 'smart-featured-image' ) );
-}
-
-/**
- * Validate plugin to uninstall
- *
- * @since 		Smart Featured Images 0.1.0
- */
-if (
-	! defined( 'WP_UNINSTALL_PLUGIN' )
-	|| 'smart-featured-image/smart-featured-image.php' != WP_UNINSTALL_PLUGIN
+if (version_compare(PHP_VERSION, SFI_MIN_PHP, '<') ||
+    version_compare(get_bloginfo('version'), SFI_MIN_WP, '<')
 ) {
-	wp_die();
+    return;
 }
 
-/**
- * Remove options
- *
- * @since 		Smart Featured Images 0.1.0
- */
+if (!current_user_can('activate_plugins')) {
+	wp_die(esc_html__(
+        'You are not allowed to perform this action!',
+        'smart-featured-image'
+    ));
+}
 
-$post_types = Helpers\get_post_types();
+require __DIR__.'/vendor/autoload.php';
 
-if ( is_multisite() ) {
-	$get_sites_exists = function_exists( 'get_sites' );
+$post_types = SmartFeaturedImage()->utilities->featuredImage->postTypes();
 
-	if ( $get_sites_exists ) {
-		$blogs = get_sites( array(
-			'number' => -1,
-		) );
-	} else {
-		$blogs = wp_get_sites( array(
-			'limit' => -1,
-		) );
-	}
+if (is_multisite()) {
+	$blogs = get_sites(array('number' => -1));
 
-	foreach ( $blogs as $blog ) {
-		if ( $get_sites_exists ) {
-			$blog_id = $blog->blog_id;
-		} else {
-			$blog_id = $blog['blog_id'];
-		}
-
-		switch_to_blog( $blog_id );
-
-		foreach ( $post_types as $post_type ) {
-			Helpers\delete_option( $post_type->name );
-		}
+	foreach ($blogs as $blog) {
+		switch_to_blog($blog->blog_id);
+		deleteSmartFeaturedImageOptions($post_types);
 	}
 
 	restore_current_blog();
 } else {
-	foreach ( $post_types as $post_type ) {
-		Helpers\delete_option( $post_type->name );
+	deleteSmartFeaturedImageOptions($post_types);
+}
+
+function deleteSmartFeaturedImageOptions($post_types)
+{
+    foreach ($post_types as $post_type) {
+		SmartFeaturedImage()->utilities->options
+            ->defaultFeaturedImage($post_type->name)
+            ->delete();
 	}
 }
