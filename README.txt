@@ -69,10 +69,11 @@ The plugin's source code is on [Github](https://github.com/GrottoPress/smart-fea
 == Changelog ==
 
 = 0.3.0 =
-- Release date: 2020-03-11
+- Release date: 2024-09-03
 - Rewrite plugin using the [WordPress SUV](https://github.com/GrottoPress/wordpress-suv) architecture
 - Change license to MIT
 - Update minimum required PHP version to 7.0
+- Update minimum required WordPress version to 5.3
 
 = 0.2.4 =
 - Release date: 2017-08-29
