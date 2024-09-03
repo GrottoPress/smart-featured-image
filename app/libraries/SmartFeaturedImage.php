@@ -15,7 +15,7 @@ final class SmartFeaturedImage extends AbstractPlugin
     private $utilities;
 
     /**
-     * @var string[string]
+     * @var array<string, string>
      */
     private $meta;
 
@@ -33,7 +33,7 @@ final class SmartFeaturedImage extends AbstractPlugin
     }
 
     /**
-     * @return string[string]
+     * @return array<string, string>
      */
     protected function getMeta(): array
     {
@@ -67,7 +67,7 @@ final class SmartFeaturedImage extends AbstractPlugin
     }
 
     /**
-     * @return string[string]
+     * @return array<string, string>
      */
     private function meta(): array
     {

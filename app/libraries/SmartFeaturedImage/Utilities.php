@@ -64,7 +64,7 @@ class Utilities
     }
 
     /**
-     * @param mixed[string] $args
+     * @param array<string, mixed> $args
      */
     public function field(array $args): Field
     {

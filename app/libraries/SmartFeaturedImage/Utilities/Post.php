@@ -44,7 +44,7 @@ class Post
     }
 
     /**
-     * @return WP_Post[int]
+     * @return WP_Post[]
      */
     public function getAttachedImages(): array
     {
