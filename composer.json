@@ -31,9 +31,15 @@
     "grottopress/wordpress-field": "^1.0",
     "grottopress/wordpress-suv": "^1.0"
   },
+  "require-dev": {
+    "wp-cli/wp-cli-bundle": "^2.7"
+  },
   "scripts": {
     "test": [
       "./vendor/bin/codecept run unit"
+    ],
+    "wp": [
+      "./vendor/bin/wp"
     ]
   },
   "autoload": {
