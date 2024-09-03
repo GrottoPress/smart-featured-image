@@ -28,8 +28,8 @@
   },
   "require": {
     "php": ">=7.0",
-    "grottopress/wordpress-field": "^0.8",
-    "grottopress/wordpress-suv": "^0.7"
+    "grottopress/wordpress-field": "^1.0",
+    "grottopress/wordpress-suv": "^1.0"
   },
   "scripts": {
     "test": [
@@ -41,7 +41,7 @@
   },
   "autoload": {
     "psr-4": {
-      "GrottoPress\\": "app/libraries/"
+      "GrottoPress\\": "app/"
     },
     "files": [
       "app/helpers.php"

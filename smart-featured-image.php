@@ -12,13 +12,15 @@
  * License URI: https://opensource.org/licenses/MIT
  * Text Domain: smart-featured-image
  * Domain Path: /lang
+ * Requires at least: 5.3
+ * Requires PHP: 7.0
  */
 
 /**
  * IMPORTANT: Keep code in this file compatible with PHP 5.2
  */
 
-!defined('WPINC') && exit;
+defined('WPINC') || exit;
 
 require __DIR__.'/constants.php';
 

@@ -1,12 +1,7 @@
 <?php
 declare (strict_types = 1);
 
-namespace GrottoPress\
-    SmartFeaturedImage\
-    Setups\
-    Optionizer\
-    DefaultFeaturedImage\
-    Settings;
+namespace GrottoPress\SmartFeaturedImage\Setups\Optionizer\DefaultFeaturedImage\Settings;
 
 use GrottoPress\SmartFeaturedImage\Setups\Optionizer\DefaultFeaturedImage;
 use WP_Post_Type;

@@ -2,8 +2,8 @@
 Contributors: grottopress, attakusiadusei
 Donate link:
 Tags: automatic-featured-image, smart-featured-image, featured-image, post-thumbnail
-Requires at least: 4.7
-Tested up to: 5.4
+Requires at least: 5.3
+Tested up to: 6.6
 Requires PHP: 7.0
 Stable tag: trunk
 License: MIT

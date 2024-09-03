@@ -1,18 +1,13 @@
 <?php
 declare (strict_types = 1);
 
-namespace GrottoPress\
-    SmartFeaturedImage\
-    Setups\
-    Optionizer\
-    DefaultFeaturedImage\
-    Fields;
+namespace GrottoPress\SmartFeaturedImage\Setups\Optionizer\DefaultFeaturedImage\Settings;
 
-use GrottoPress\WordPress\SUV\Setups\Optionizer\AbstractField as Field;
+use GrottoPress\WordPress\SUV\Setups\Optionizer\AbstractSetting as Setting;
 use GrottoPress\SmartFeaturedImage\Setups\Optionizer\DefaultFeaturedImage;
 use WP_Post_Type;
 
-abstract class AbstractField extends Field
+abstract class AbstractSetting extends Setting
 {
     public function __construct(DefaultFeaturedImage $section)
     {

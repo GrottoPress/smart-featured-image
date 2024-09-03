@@ -39,15 +39,15 @@ msgid "%1$s plugin has been deactivated as it requires PHP >= %2$s and WordPress
 msgstr ""
 
 #: uninstall.php:34
-#: app/libraries/SmartFeaturedImage/Setups/Activator.php:29
-#: app/libraries/SmartFeaturedImage/Setups/Deactivator.php:32
+#: app/SmartFeaturedImage/Setups/Activator.php:29
+#: app/SmartFeaturedImage/Setups/Deactivator.php:32
 msgid "You are not allowed to perform this action!"
 msgstr ""
 
-#: app/libraries/SmartFeaturedImage/Setups/Optionizer/DefaultFeaturedImage.php:19
+#: app/SmartFeaturedImage/Setups/Optionizer/DefaultFeaturedImage.php:19
 msgid "Select the default featured image for each post type."
 msgstr ""
 
-#: app/libraries/SmartFeaturedImage/Setups/Optionizer/DefaultFeaturedImage.php:25
+#: app/SmartFeaturedImage/Setups/Optionizer/DefaultFeaturedImage.php:25
 msgid "Default Featured Image"
 msgstr ""
