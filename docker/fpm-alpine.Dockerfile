@@ -1,5 +1,5 @@
-ARG PHP_VERSION=7.4
-ARG WORDPRESS_VERSION=5.3
+ARG PHP_VERSION=8.2
+ARG WORDPRESS_VERSION=6.6
 
 FROM prooph/composer:${PHP_VERSION} AS vendor
 
@@ -21,7 +21,7 @@ RUN composer dump-autoload \
         --no-scripts \
         --optimize
 
-FROM grottopress/wordpress:${WORDPRESS_VERSION}-php${PHP_VERSION}-fpm-alpine
+FROM wordpress:${WORDPRESS_VERSION}-php${PHP_VERSION}-fpm-alpine
 
 ARG PLUGIN_NAME=smart-featured-image
 
