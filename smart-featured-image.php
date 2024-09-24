@@ -20,7 +20,7 @@
  * IMPORTANT: Keep code in this file compatible with PHP 5.2
  */
 
-defined('WPINC') || exit;
+defined('WPINC') || exit(1);
 
 require __DIR__.'/constants.php';
 
