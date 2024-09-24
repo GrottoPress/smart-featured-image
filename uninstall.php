@@ -15,7 +15,7 @@ if (version_compare(PHP_VERSION, SFI_MIN_PHP, '<') ||
     return;
 }
 
-if (!current_user_can('activate_plugins')) {
+if (!current_user_can('install_plugins')) {
 	wp_die(esc_html__(
         'You are not allowed to perform this action!',
         'smart-featured-image'
