@@ -71,14 +71,21 @@ final class SmartFeaturedImage extends AbstractPlugin
      */
     private function meta(): array
     {
-        $data = \array_map(
-            'sanitize_text_field',
-            \get_file_data(SFI_PLUGIN_PATH, [
-                'domain_path' => 'Domain Path',
-                'name' => 'Plugin Name',
-                'text_domain' => 'Text Domain',
-            ], 'plugin')
-        );
+        $data = \get_file_data(SFI_PLUGIN_PATH, [
+            'author' => 'Author',
+            'author_uri' => 'Author URI',
+            'description' => 'Description',
+            'domain_path' => 'Domain Path',
+            'license' => 'License',
+            'license_uri' => 'License URI',
+            'name' => 'Plugin Name',
+            'requires_php' => 'Requires PHP',
+            'requires_wp' => 'Requires at least',
+            'tags' => 'Tags',
+            'text_domain' => 'Text Domain',
+            'uri' => 'Plugin URI',
+            'version' => 'Version',
+        ], 'plugin');
 
         $data['slug'] = \sanitize_title($data['name']);
 
