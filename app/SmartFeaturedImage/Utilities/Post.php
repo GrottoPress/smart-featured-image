@@ -58,9 +58,7 @@ class Post
 
     private function catchFirstImage(): string
     {
-        if (!($content = $this->object->post_content)) {
-            return '';
-        }
+        if (!($content = $this->object->post_content)) return '';
 
         \preg_match_all(
             '/<img.+src=[\'"]([^\'"]+)[\'"].*>/i',
@@ -68,9 +66,7 @@ class Post
             $matches
         );
 
-        if (empty($matches[1])) {
-            return '';
-        }
+        if (empty($matches[1])) return '';
 
         foreach ($matches[1] as $source) {
             $uploads_dir = \wp_upload_dir();

@@ -25,9 +25,7 @@ final class Deactivator extends AbstractSetup
      */
     public function checkCapability()
     {
-        if (\current_user_can('activate_plugins')) {
-            return;
-        }
+        if (\current_user_can('activate_plugins')) return;
 
         \wp_die(\esc_html__(
             'You are not allowed to perform this action!',

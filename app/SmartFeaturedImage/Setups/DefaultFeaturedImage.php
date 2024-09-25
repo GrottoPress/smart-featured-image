@@ -26,9 +26,7 @@ final class DefaultFeaturedImage extends AbstractSetup
         string $meta_key,
         bool $single
     ) {
-        if ('_thumbnail_id' != $meta_key) {
-            return $metadata;
-        }
+        if ('_thumbnail_id' != $meta_key) return $metadata;
 
         global $wpdb;
 
@@ -38,28 +36,19 @@ final class DefaultFeaturedImage extends AbstractSetup
             $meta_key
         ));
 
-        if ($thumbnail_exists) {
-            return $metadata;
-        }
-
-        if (\wp_is_post_revision($post_id)) {
-            return $metadata;
-        }
+        if ($thumbnail_exists) return $metadata;
+        if (\wp_is_post_revision($post_id)) return $metadata;
 
         $post = \get_post($post_id);
         $post_util = $this->app->utilities->post($post);
 
-        if ($post_util->contentHasImage()) {
-            return $metadata;
-        }
+        if ($post_util->contentHasImage()) return $metadata;
 
         if (!\post_type_supports($post->post_type, 'thumbnail')) {
             return $metadata;
         }
 
-        if ('publish' != $post->post_status) {
-            return $metadata;
-        }
+        if ('publish' != $post->post_status) return $metadata;
 
         if ($post_util->disableSmartFeaturedImage()) {
             return $metadata;
@@ -100,9 +89,7 @@ final class DefaultFeaturedImage extends AbstractSetup
         $meta_value,
         $previous_value
     ) {
-        if ('_thumbnail_id' != $meta_key) {
-            return $check;
-        }
+        if ('_thumbnail_id' != $meta_key) return $check;
 
         if ($meta_value !=
             $this->app

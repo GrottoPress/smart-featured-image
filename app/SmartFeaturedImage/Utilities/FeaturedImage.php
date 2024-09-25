@@ -30,10 +30,7 @@ class FeaturedImage
         $thumbnail_post_types = [];
 
         foreach ($post_types as $post_type) {
-            if (!\post_type_supports($post_type->name, 'thumbnail')) {
-                continue;
-            }
-
+            if (!\post_type_supports($post_type->name, 'thumbnail')) continue;
             $thumbnail_post_types[$post_type->name] = $post_type;
         }
 

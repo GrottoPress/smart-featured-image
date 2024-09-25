@@ -29,9 +29,7 @@ final class Optionizer extends AbstractOptionizer
      */
     public function enqueueMedia(string $suffix)
     {
-        if ('options-media.php' != $suffix) {
-            return;
-        }
+        if ('options-media.php' != $suffix) return;
 
         \wp_enqueue_media();
     }

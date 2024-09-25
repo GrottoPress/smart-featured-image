@@ -43,27 +43,14 @@ final class FeaturedImage extends AbstractSetup
     {
         $post = \get_post($post);
 
-        if (\has_post_thumbnail($post->ID)) {
-            return;
-        }
-
-        if (\wp_is_post_revision($post->ID)) {
-            return;
-        }
-
-        if (!\post_type_supports($post->post_type, 'thumbnail')) {
-            return;
-        }
-
-        if ('publish' != $post->post_status) {
-            return;
-        }
+        if ('publish' != $post->post_status) return;
+        if (\has_post_thumbnail($post->ID)) return;
+        if (\wp_is_post_revision($post->ID)) return;
+        if (!\post_type_supports($post->post_type, 'thumbnail')) return;
 
         $post_util = $this->app->utilities->post($post);
 
-        if ($post_util->disableSmartFeaturedImage()) {
-            return;
-        }
+        if ($post_util->disableSmartFeaturedImage()) return;
 
         if ($attached_images = $post_util->getAttachedImages()) {
             foreach($attached_images as $attachment_id => $attachment) {
